@@ -2,7 +2,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
 import numpy as np
-lalalalalal
+
 class Classifier():
 	def __init__(self, tweet_file, labels, clf, w2v):
 		self.file = tweet_file
