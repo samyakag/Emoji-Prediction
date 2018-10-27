@@ -20,12 +20,14 @@ class Classifier():
 	def make_features(self):
 		"""Creates features for out model from training tweets"""
 		tweets = open(self.file, "r")
-		for tweet in tweets:
+		for i, tweet in enumerate(tweets):
+			if i > 20000:
+				break
 			avg_vec = np.zeros(self.tweet2vec.wv.vector_size)
 			for word in tweet:
 				if word not in self.tweet2vec.wv.vocab:
 					continue
-				avg_vec = np.add(avg.vec, self.tweet2vec.wv[word])
+				avg_vec = np.add(avg_vec, self.tweet2vec.wv[word])
 			self.features.append(np.true_divide(avg_vec, len(tweet)))
 		tweets.close()
 

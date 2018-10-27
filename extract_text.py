@@ -39,13 +39,6 @@ class preprocessingTweets:
         resultfile.write(json.dumps(data))
         resultfile.close()
 
-
-    @staticmethod
-    def preprocess_tweet(tweet, pipeline):
-        for pipe in pipeline:
-            tweet = pipe(tweet)
-        return tweet
-
     @staticmethod
     def preprocess_hashtags(tweet):
         return HASHTAGS_REGEX.sub('', tweet)
@@ -69,6 +62,12 @@ class preprocessingTweets:
     @staticmethod
     def remove_unicode(tweet):
         return ASCII_REGEX.sub('', tweet)
+
+    @staticmethod
+    def preprocess_tweet(tweet, pipeline):
+        for pipe in pipeline:
+            tweet = pipe(tweet)
+        return tweet
 
     @staticmethod
     def extract_tweet(tweet):

@@ -26,7 +26,7 @@ class getEmojis:
 		# There is only one unique emoji per tweet
 		self.emoji_labels = []
 		for i, d in enumerate(self.data):
-			if i > 200:
+			if i > 20000:
 				break
 			emoji_label = self.extract_emojis(d)
 			li = np.asarray(list(emoji_label.split(" ")))
